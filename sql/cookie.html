@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<?php
+
+    $nombre_cookie = "id";
+    $valor_cookie = "1234";
+    
+    echo time();
+    //setcookie($nombre_cookie,$valor_cookie,time()+60*60*24,"/");
+    setcookie($nombre_cookie,$valor_cookie,time()-3600,"/");
+    echo $_COOKIE[$nombre_cookie];
+?>
+
+<html>
+<body>
+
+<?php
+    if(!isset($_COOKIE["id"])) {
+        echo "Cookie named '" . "id" . "' is not set!";
+    } else {
+        echo "Cookie '" . "id" . "' is set!<br>";
+        echo "Value is: " . $_COOKIE["id"];
+    }
+?>
+
+</body>
+</html>

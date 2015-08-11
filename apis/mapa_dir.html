@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
+  </head>
+  <body>
+		<!-- Atención: ésta es una petición al servidor de Google, no al nuestro
+		   Normalmente no pueden hacerse, pero las peticiones al servidor de Google
+		   son una excepción  -->
+	<script 
+		
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+	</script>
+  
+		<!-- Empleamos Ajax para decir el tipo de datos que queremos recibir -->
+	<script>
+		
+		$.ajax({
+			type: "GET",
+			url: 
+				"https://maps.googleapis.com/maps/api/geocode/xml?address=Calle+de+Mauricio+Legendre,7,+Madrid,+CA&key=AIzaSyBz2VUwlMhtD1hf_8vZeSRKbudLiRpieHc",
+			dataType: "xml",
+			success: procesa_XML
+		});
+		
+		function procesa_XML(xml) {
+			// alert("Funciona");
+			// El objeto xml lo vamos a meter en un objeto jquery para procesarlo
+			// eso se hace sin más que poner $(xml)
+			// Esta función busca la cadena "status" y nos devuelve el texto asociado
+			//
+			//alert($(xml).find("status").text());
+			
+			// Esta función busca la cadena "location" y hace un bucle por el contenido
+			//
+			$(xml).find("location").each(function(){
+				//alert($(this).text());
+				alert($(this).find("lat").text());
+				alert($(this).find("lng").text());
+			});
+		}
+	</script>	
+  
+  
+  </body>
+</html>
+

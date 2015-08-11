@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<!--<script type="text/javascript" src="global.js"></script>-->
+<title>External JS Globals - index.php</title>
+</head>
+<body>
+<div id="idioma">
+Ho
+</div>
+<button type="button" id="button1" onclick="f1();"> fire f1 </button>
+<br />
+<button type="button" id="button2" onclick="f2();"> fire f2 </button>
+<br />
+
+<script>
+function f1()
+{
+	localStorage.setItem("lengua","esp");
+	Lengua="esp"
+	document.getElementById("idioma").innerHTML = Lengua;
+    //alert('lengua: '+localStorage.getItem("lengua"));
+}
+
+function f2()
+{
+
+	localStorage.setItem("lengua","eng");
+	Lengua="eng"
+	document.getElementById("idioma").innerHTML = Lengua;
+    //alert('lengua: '+localStorage.getItem("lengua"));
+}
+</script>
+
+<script>
+	// Variable global donde se almacena la lengua en la que está la aplicación.
+	// Inicialmente está en español.
+	var Lengua = "esp";
+	// Declara el evento cambia_lengua para que se active
+	// siempre que la variable común «lengua» se cambie desde
+	// otra página de la aplicación
+	window.addEventListener('storage', cambia_lengua, false);
+	
+	
+	function cambia_lengua(evt) {
+		//actualizamos la variable 
+		document.getElementById("idioma").innerHTML = evt.newValue;
+		Lengua = evt.newValue;
+		//alert(Lengua);
+	
+    /*alert('The modified key was '+evt.key);
+    alert('The original value was '+evt.oldValue);
+    alert('The new value is '+evt.newValue);
+    alert('The URL of the page that made the change was '+evt.url);
+    alert('The window where the change was made was '+evt.source);
+	*/
+}
+	
+	
+	/*
+	var lengua=localStorage.getItem("lengua");
+
+	function storageEvent(event) {
+  event = event || window.event; // give IE8 some love
+  document.getElementById("idioma").innerHTML = lengua;
+  alert('Yo people! Something just got stored!');
+}
+
+if (window.attachEvent) { // ::sigh:: IE8 support
+   window.attachEvent('onstorage', storageEvent);
+} else {
+    window.addEventListener('storage', storageEvent, false);
+}
+
+*/
+	
+
+// Check browser support
+//if (typeof(Storage) != "undefined") {
+    // Store
+   // document.getElementById("idioma").innerHTML = lengua;
+//} else {
+ //   document.getElementById("idioma").innerHTML = "Sorry, your browser does not support Web Storage...";
+//}
+</script>
+</body>
+</html>

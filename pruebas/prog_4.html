@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>UI Draggable</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script type="text/javascript" 
+	src="jquery.min.js"></script>
+	<link rel="stylesheet" 
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" 
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+		<style>
+			#arrastrable {
+				height:200px;
+				width:200px;
+				background-color:green;
+			}
+			
+			#grandeable {
+				height:200px;
+				width:200px;
+				background-color:yellow;
+			}
+            
+            .bandera {
+                background: transparent;
+                border:0;
+                padding:0;
+            }
+		</style>
+</head>
+<body>
+<button class="bandera" id="esp" value='esp' onclick=funcion('esp')>
+   <img src="../images/flag_sp.png" />
+</button>
+
+<button class="bandera" value='ing' onclick=funcion('ing')>
+   <img src="../images/flag_uk.png" />
+</button>
+    <p id="demo"></p>
+
+	<div id="arrastrable">
+		Arrástrame
+	</div>
+	<div id="grandeable">
+		Agrándame
+	</div>
+	
+	<script>
+		$("#arrastrable").draggable();
+		$("#arrastrable").resizable();
+		$("#grandeable").resizable();
+        
+
+        
+        function funcion(param) {
+           document.getElementById("demo").innerHTML = param;
+        }
+		
+		
+	</script>
+
+</body>
+</html>

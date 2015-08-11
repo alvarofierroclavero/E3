@@ -1,0 +1,68 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<GeocodeResponse>
+<status>OK</status>
+<result>
+<type>street_address</type>
+<formatted_address>
+Calle de Mauricio Legendre, 7, 28046 Madrid, Madrid, España
+</formatted_address>
+<address_component>
+<long_name>7</long_name>
+<short_name>7</short_name>
+<type>street_number</type>
+</address_component>
+<address_component>
+<long_name>Calle de Mauricio Legendre</long_name>
+<short_name>Calle de Mauricio Legendre</short_name>
+<type>route</type>
+</address_component>
+<address_component>
+<long_name>Madrid</long_name>
+<short_name>Madrid</short_name>
+<type>locality</type>
+<type>political</type>
+</address_component>
+<address_component>
+<long_name>Madrid</long_name>
+<short_name>M</short_name>
+<type>administrative_area_level_2</type>
+<type>political</type>
+</address_component>
+<address_component>
+<long_name>Comunidad de Madrid</long_name>
+<short_name>Comunidad de Madrid</short_name>
+<type>administrative_area_level_1</type>
+<type>political</type>
+</address_component>
+<address_component>
+<long_name>España</long_name>
+<short_name>ES</short_name>
+<type>country</type>
+<type>political</type>
+</address_component>
+<address_component>
+<long_name>28046</long_name>
+<short_name>28046</short_name>
+<type>postal_code</type>
+</address_component>
+<geometry>
+<location>
+<lat>40.4694230</lat>
+<lng>-3.6869094</lng>
+</location>
+<location_type>ROOFTOP</location_type>
+<viewport>
+<southwest>
+<lat>40.4680740</lat>
+<lng>-3.6882584</lng>
+</southwest>
+<northeast>
+<lat>40.4707720</lat>
+<lng>-3.6855604</lng>
+</northeast>
+</viewport>
+</geometry>
+<partial_match>true</partial_match>
+<place_id>ChIJqXlzHRQpQg0RhEkFQpriwSQ</place_id>
+</result>
+</GeocodeResponse>

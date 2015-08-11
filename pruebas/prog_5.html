@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>UI Draggable</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script type="text/javascript" 
+	src="jquery.min.js"></script>
+	<link rel="stylesheet" 
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" 
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+		<style>
+
+		</style>
+		<script>
+		
+			function showHint(lengua) {
+				if (lengua.length == 0) { 
+					document.getElementById("demo").innerHTML = "";
+					return;
+				} else {
+				
+					// Objeto HttpRequest
+					var xmlhttp = new XMLHttpRequest();
+					
+					// xmlhttp.onreadystatechange
+					// Función que se ejecuta cuando AJAX termina la tarea
+					//
+					xmlhttp.onreadystatechange = function() {
+					//
+					// xmlhttp.readyState == 4 quiere decir que el proceso de petición al servidor ha terminado
+					// y la respuesta está lista
+					// xmlhttp.status == 200 quiere decir que se ha llevado a cabo la petición. Si da 404
+					// eso quiere decir que no ha encontrado respuesta
+					//
+						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							document.getElementById("demo").innerHTML = xmlhttp.responseText;
+						}
+					}
+					
+					// xmlhttp.open
+					// parámetros: GET o POST, quién responde, tipo de llamada
+					//
+					// Empleo GET porque se trata de algo pequeño, sólo quiero convertir una variable 
+					// javascript en una variable PHP.
+					//
+					// Responde en el servidor la función nombre_lengua.php a la que se le pasa 
+					// el valor «lengua», en la variable llamada «idioma».
+					//
+					// true: se trata de una tarea asíncrona.
+					//
+					xmlhttp.open("GET", "nombre_lengua.php?idioma=" + lengua, true);
+					
+					// xmlhttp.send()
+					// Envía la petición al servidor
+					//
+					xmlhttp.send();
+				}
+			}
+			
+		</script>
+</head>
+<body>
+	HOLA
+	<!--
+	<div>
+		<button type="button"  onclick="funcion('esp')"> ESP </button>
+		<br />
+		<button type="button"  onclick="funcion('ing')"> ING </button>
+		<p id="demo"></p>
+	</div>
+
+-->
+	
+	<script>
+
+//		$.ajax({  
+//			type: "GET",  
+//			url: "nombre_lengua.php",  
+//			data: { idioma: localStorage.getItem("yourValue"); }
+//});
+        
+        function funcion(param) {
+		   alert(param);
+		   showHint(param);
+           //document.getElementById("demo").innerHTML = param;
+        }
+		
+		
+	</script>
+
+</body>
+</html>
